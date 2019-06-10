@@ -1,17 +1,22 @@
 import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
 
-Wordpress2016.overrideThemeStyles = () => {
-  return {
-    "a.gatsby-resp-image-link": {
-      boxShadow: `none`,
-    },
-  }
-}
+const typography = new Typography({
+  baseFontSize: "21px",
+  baseLineHeight: 1.6,
+  headerFontFamily: [
+    "medium-content-sans-serif-font",
+    "Helvetica Neue",
+    "Segoe UI",
+    "Helvetica",
+    "Arial",
+    "sans-serif",
+  ],
+  bodyFontFamily: ["medium-content-serif-font", "serif"],
+  // See below for the full list of options.
+})
 
-delete Wordpress2016.googleFonts
-
-const typography = new Typography(Wordpress2016)
+// Output CSS as string.
+typography.toString()
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
